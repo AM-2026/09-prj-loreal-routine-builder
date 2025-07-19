@@ -1,3 +1,38 @@
+/* Overlay for product description on hover */
+.product-card {
+  position: relative;
+}
+
+.product-desc-overlay {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  color: #222;
+  border: 2px solid #0078d4;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+  padding: 18px 16px 16px 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.product-card:hover .product-desc-overlay,
+.product-card:focus-within .product-desc-overlay {
+  display: block;
+  pointer-events: auto;
+}
+/* Highlight for selected product card */
+.product-card.selected {
+  border: 2px solid #0078d4;
+  box-shadow: 0 0 8px #0078d4;
+}
 /* —— basic reset —— */
 * {
   box-sizing: border-box;
