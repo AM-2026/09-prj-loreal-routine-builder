@@ -252,13 +252,11 @@ chatForm.addEventListener("submit", async (e) => {
   chatWindow.innerHTML += `<div class=\"loading-message\">Thinking...</div>`;
 
   try {
-    // Send the full conversation to the OpenAI API
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    // Send the full conversation to the Cloudflare Worker proxy
+    const response = await fetch("https://pj8.monahana.workers.dev/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Use your OpenAI API key from secrets.js
-        Authorization: `Bearer ${openaiApiKey}`,
       },
       body: JSON.stringify({
         model: "gpt-4o",
@@ -327,11 +325,10 @@ generateRoutineBtn.addEventListener("click", async () => {
   chatWindow.innerHTML += `<div class=\"loading-message\">Generating your routine...</div>`;
 
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch("https://pj8.monahana.workers.dev/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${openaiApiKey}`,
       },
       body: JSON.stringify({
         model: "gpt-4o",
